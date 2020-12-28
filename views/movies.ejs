@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Movie App - Node JS</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="/stylesheets/design.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700&display=swap">
+
+</head>
+<body>
+	<h1 id="searchHeading">Search Results <span style="color: gray;"> > </span> <%= searchQuery.toUpperCase(); %> </h1>
+
+	<% data["results"].forEach((movie)=> { %>
+		<div class="card mb-5 w-75">
+			<div class="row no-gutters">
+				<div class="col-md-4">
+					<img src="https://image.tmdb.org/t/p/w1280/<%= movie["poster_path"] %>" class="card-img img-fluid">
+				</div>
+
+				<div class="col-md-8">
+					<div class="card-body">
+						<h2 class="cart-title"><%= movie['original_title']  %></h2>
+						<hr>
+						<br>
+
+						<p class="cart-text"><%= movie['overview']  %></p>
+						<hr>
+						<p class="card-text"><b>Date Published :</b>  
+							<%= movie['release_date']  %>
+						</p>
+						<p class="card-text"><b>Total Votes :</b>  
+							<%= movie['vote_count']  %>
+						</p>
+						<p class="card-text"><b>Average Rating:</b>  
+							<%= movie['vote_average']  %>
+						</p>
+
+
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	<% }); %>
+
+
+
+
+</body>
+</html>
